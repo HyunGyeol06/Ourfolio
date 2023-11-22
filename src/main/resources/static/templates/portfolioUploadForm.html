@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>포트폴리오 작성</title>
+  <style>
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<header>
+  <nav>
+    <div>
+      <a href="/"><img src="/templates/image/ourfolio.png" alt="Logo" width="200"></a>
+    </div>
+    <ul>
+      <li><a href="/logout">로그아웃</a></li>
+      <li><a href="/portfolio/list">포트폴리오 둘러보기</a></li>
+      <li><a href="/user/profile">프로필</a></li>
+      <li><a href="/portfolio/uploadForm">포트폴리오 적으러가기</a></li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+<h1>포트폴리오 작성</h1>
+
+<form method="post" action="/portfolio/upload" enctype="multipart/form-data">
+  <div>
+    <label for="description">개요(126자 미만):</label><br>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+  </div>
+
+  <div>
+    <label for="img">대표 이미지 업로드</label><br>
+    <input type="file" id="img" name="img"><br><br>
+  </div>
+
+  <div>
+    <label for="pdf">포트폴리오 PDF 업로드</label><br>
+    <input type="file" id="pdf" name="pdf"><br><br>
+  </div>
+
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+</body>
+</html>

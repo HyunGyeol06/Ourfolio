@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit User Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    div {
+      margin: 10px;
+    }
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+    nav ul li {
+      margin-right: 20px;
+    }
+    nav ul li:last-child {
+      margin-right: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<header>
+  <nav>
+    <div>
+      <a href="/"><img src="/templates/image/ourfolio.png" alt="Logo" width="200"></a>
+    </div>
+    <ul>
+      <li><a href="/logout">로그아웃</a></li>
+      <li><a href="/portfolio/list">포트폴리오 둘러보기</a></li>
+      <li><a href="/user/profile">프로필</a></li>
+      <li><a href="/portfolio/uploadForm">포트폴리오 적으러가기</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
+<div class="edit-form">
+  <h1>정보 수정</h1>
+  <h3>수정하지 않을 정보는 비워주세요</h3>
+  <form action="/user/information" th:method="put">
+    <div class="form-group">
+      <label for="username">이름:</label>
+      <input type="text" id="username" name="username">
+    </div>
+    <div class="form-group">
+      <label for="region">희망 근무지역:</label>
+      <input type="text" id="region" name="region">
+    </div>
+    <div class="form-group">
+      <label for="occupation">희망 직종:</label>
+      <input type="text" id="occupation" name="occupation">
+    </div>
+    <div class="form-group">
+      <label for="isHavingJob">
+        <input type="checkbox" id="isHavingJob" name="isHavingJob">
+        취업여부
+      </label>
+    </div>
+    <div class="form-group">
+      <button type="submit">저장하기</button>
+    </div>
+  </form>
+</div>
+</body>
+</html>
